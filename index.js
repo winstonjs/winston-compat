@@ -3,6 +3,11 @@
 var cycle = require('cycle');
 
 //
+// Expose base Transport
+//
+exports.Transport = require('./lib/transport');
+
+//
 // ### function clone (obj)
 // #### @obj {Object} Object to clone.
 // Helper method for deep cloning pure JSON objects
