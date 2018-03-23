@@ -1,6 +1,6 @@
 {
   "name": "winston-compat",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
   "main": "index.js",
   "scripts": {
