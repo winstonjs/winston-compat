@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 0.1.1
+
+- Move `vows` to `devDependencies`.
+
 ### 0.1.0
 
 - Add legacy `vows`-based test helpers.
