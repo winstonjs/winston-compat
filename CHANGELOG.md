@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 0.1.2
+
+- [#7] require `'util'`.
+
 ### 0.1.1
 
 - Move `vows` to `devDependencies`.
