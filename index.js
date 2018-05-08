@@ -1,6 +1,7 @@
 'use strict';
 
 var cycle = require('cycle');
+var util = require('util')
 
 //
 // Expose base Transport
