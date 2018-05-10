@@ -2,6 +2,13 @@
 
 var cycle = require('cycle');
 var util = require('util');
+var { levels, format } = require('logform');
+var { configs } = require('triple-beam');
+var { colorize } = format;
+
+levels(configs.cli);
+levels(configs.npm);
+levels(configs.syslog);
 
 //
 // Expose base Transport
@@ -159,16 +166,24 @@ exports.log = function (options) {
 
   output = timestamp ? timestamp + ' - ' : '';
   if (showLevel) {
-    output += options.colorize === 'all' || options.colorize === 'level' || options.colorize === true
-      ? config.colorize(options.level)
+    var opts = {};
+    opts.level = options.colorize === 'level';
+    opts.all = options.colorize === 'all' || options.colorize === true;
+
+    output += opts.level || opts.all
+      ? colorize().transform(options, opts).level
       : options.level;
   }
 
   output += (options.align) ? '\t' : '';
   output += (timestamp || showLevel) ? ': ' : '';
   output += options.label ? ('[' + options.label + '] ') : '';
-  output += options.colorize === 'all' || options.colorize === 'message'
-    ? config.colorize(options.level, options.message)
+  var opts = {};
+  opts.message = options.colorize === 'message';
+  opts.all = options.colorize === 'all';
+
+  output += opts.all || opts.message
+    ? colorize.transform(options, opts).message
     : options.message;
 
   if (meta !== null && meta !== undefined) {
