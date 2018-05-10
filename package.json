@@ -4,7 +4,9 @@
   "description": "Core functionality from winston < 3.0.0 commonly used by user-created transports.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha test/*.test.js"
+    "test": "nyc mocha test/*.test.js",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
